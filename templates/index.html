@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>康威生命游戏 - 物种演化版</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- 引入Font Awesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>康威生命游戏 - 物种演化版</h1>
+            <p>观察细胞群体按照规则自动演化，探索物种形成和演化的奥秘</p>
+        </header>
+        
+        <div class="game-container">
+            <div class="left-sidebar">
+                <div class="game-info">
+                    <h3>游戏信息</h3>
+                    <div class="info-item">
+                        <span class="label">世代:</span>
+                        <span id="generation">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">存活细胞:</span>
+                        <span id="live-cells">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">物种数量:</span>
+                        <span id="species-count">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">演化时间:</span>
+                        <span id="evolution-time">0秒</span>
+                    </div>
+                </div>
+                
+                <div class="species-info">
+                    <h3>物种统计</h3>
+                    <div id="species-stats"></div>
+                </div>
+            </div>
+            
+            <div class="grid-container">
+                <canvas id="game-canvas"></canvas>
+            </div>
+            
+            <div class="right-sidebar">
+                <div class="game-info">
+                    <h3>游戏状态</h3>
+                    <div class="info-item">
+                        <span class="label">状态:</span>
+                        <span id="game-status">暂停</span>
+                    </div>
+                </div>
+                
+                <div class="stage-info">
+                    <h3>物种阶段分布</h3>
+                    <div id="stage-distribution"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom-controls">
+            <div class="controls">
+                <h3>游戏控制</h3>
+                <div class="control-buttons">
+                    <button id="run-btn" class="btn btn-primary">开始</button>
+                    <button id="step-btn" class="btn btn-secondary">下一步</button>
+                    <button id="reset-btn" class="btn btn-danger">重置</button>
+                    <button id="random-btn" class="btn btn-info">随机生成</button>
+                </div>
+                
+                <div class="options-container">
+                    <div class="start-options cell-settings">
+                        <h4>初始设置</h4>
+                        <div class="option-row">
+                            <div class="option-group">
+                                <label for="cell-count">细胞数量:</label>
+                                <input type="range" id="cell-count" min="100" max="20000" step="100" value="8000">
+                                <span id="cell-count-value">8000</span>
+                            </div>
+                            
+                            <div class="option-group">
+                                <label for="density-slider">细胞密度:</label>
+                                <input type="range" id="density-slider" min="0.01" max="0.5" step="0.01" value="0.2">
+                                <span id="density-value">密度: 20%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="start-options">
+                        <h4>显示设置</h4>
+                        <div class="option-group">
+                            <label for="cell-size">细胞大小:</label>
+                            <input type="range" id="cell-size" min="2" max="16" step="1" value="4">
+                            <span id="cell-size-value">4px</span>
+                        </div>
+                    </div>
+                    
+                    <div class="start-options">
+                        <h4>演化速度</h4>
+                        <div class="option-group">
+                            <label for="speed-slider">速度:</label>
+                            <input type="range" id="speed-slider" min="110" max="100000" step="10" value="1000">
+                            <span id="speed-value">1.0秒</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/game.js"></script>
+</body>
+</html>
